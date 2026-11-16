@@ -1,0 +1,28 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "Admin-Add-Product.dc.html": { "expand": "fill", "h": 2000, "title": "Admin · add product", "w": 1440, "x": 5500, "y": 5100 },
+    "Admin-Products.dc.html": { "expand": "fill", "h": 1080, "title": "Admin · products", "w": 1440, "x": 3510, "y": 0 },
+    "Cart.dc.html": { "expand": "fill", "h": 1240, "is_interactive": true, "title": "Cart", "w": 1440, "x": 2460, "y": 5100 },
+    "Category-Mobile.dc.html": { "h": 1700, "title": "Category · mobile", "w": 390, "x": 1520, "y": 5100 },
+    "Category.dc.html": { "expand": "fill", "h": 2240, "is_interactive": true, "title": "Category with filters · desktop", "w": 1440, "x": 0, "y": 5100 },
+    "Checkout.dc.html": { "expand": "fill", "h": 1800, "title": "Place order (WhatsApp, no payment)", "w": 1440, "x": 3980, "y": 5100 },
+    "Filters-Mobile.dc.html": { "h": 844, "title": "Filters sheet · mobile", "w": 390, "x": 1990, "y": 5100 },
+    "Main.dc.html": { "expand": "fill", "h": 4060, "title": "Homepage · desktop", "w": 1440, "x": 0, "y": 0 },
+    "Mobile-Home.dc.html": { "h": 4700, "title": "Homepage · mobile (Android)", "w": 390, "x": 1520, "y": 0 },
+    "Product.dc.html": { "expand": "fill", "h": 2240, "title": "Product detail", "w": 1440, "x": 1990, "y": 0 }
+  },
+  "createdOnFiles": { "at": "2026-11-15T15:52:41.331Z", "v": 1 },
+  "designSystems": [
+    { "artifact": "https://claude.ai/code/artifact/420d9775-0fbb-4087-80ac-607acadee4ca", "copiedAt": "2026-11-15T15:55:00Z", "namespace": "varnika-sarees", "title": "Varnika Sarees", "version": "1794757885-4e27" }
+  ],
+  "launch": { "view": "canvas" },
+  "notes": {
+    "heading": { "kind": "title1", "maxW": 4950, "text": "Varnika Sarees · storefront and admin", "w": 240, "x": 0, "y": -300 },
+    "heading2": { "kind": "title1", "maxW": 6940, "text": "Discovery, cart and checkout, admin product form", "w": 240, "x": 0, "y": 4820 }
+  },
+  "order": ["Main.dc.html", "Mobile-Home.dc.html", "Product.dc.html", "Admin-Products.dc.html", "Category.dc.html", "Category-Mobile.dc.html", "Filters-Mobile.dc.html", "Cart.dc.html", "Checkout.dc.html", "Admin-Add-Product.dc.html"],
+  "pages": [ { "id": "page-1", "name": "Page 1" } ],
+  "title": "Varnika Sarees website"
+}

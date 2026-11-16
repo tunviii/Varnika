@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<title>Varnika Sarees · Admin · Add product</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&amp;family=DM+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#f8f4ef}
+a{color:#8e4f4e}a:hover{color:#7a3c40}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid #7a3c40;outline-offset:2px}
+input[type=radio],input[type=checkbox]{width:20px;height:20px;margin:0;accent-color:#8e4f4e;flex-shrink:0}
+.vs-btn-primary:hover{background-color:#7a3c40 !important}
+.vs-btn-secondary:hover{background-color:#f1e4e0 !important;border-color:#55433d !important}
+::placeholder{color:#72625a}
+</style>
+</helmet>
+<div style="font-family: 'DM Sans', system-ui, sans-serif; color: #55433d; background: #f8f4ef; min-height: 100%; display: flex; flex-wrap: wrap; align-items: stretch">
+
+<!-- Sidebar -->
+<aside style="flex: 1 1 240px; max-width: 260px; background: #f3ece4; border-right: 1px solid #d8c7ae; padding: 24px 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+  <div style="display: flex; align-items: center; gap: 12px"><img src="/images/logo.png" alt="Varnika" style="height: 48px; width: auto; display: block"><span style="font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #72625a">Admin</span></div>
+  <nav aria-label="Admin" style="display: flex; flex-direction: column; gap: 4px">
+    <a href="#" style="display: flex; align-items: center; min-height: 44px; padding: 0 12px; border-radius: 4px; text-decoration: none; font-size: 15px; font-weight: 500; color: #55433d">Dashboard</a>
+    <a href="Admin-Products.dc.html" aria-current="page" style="display: flex; align-items: center; min-height: 44px; padding: 0 12px; border-radius: 4px; text-decoration: none; font-size: 15px; font-weight: 500; color: #55433d; background: #ffffff">Products</a>
+    <a href="#" style="display: flex; align-items: center; min-height: 44px; padding: 0 12px; border-radius: 4px; text-decoration: none; font-size: 15px; font-weight: 500; color: #55433d">Orders</a>
+    <a href="#" style="display: flex; align-items: center; min-height: 44px; padding: 0 12px; border-radius: 4px; text-decoration: none; font-size: 15px; font-weight: 500; color: #55433d">Enquiries</a>
+    <a href="#" style="display: flex; align-items: center; min-height: 44px; padding: 0 12px; border-radius: 4px; text-decoration: none; font-size: 15px; font-weight: 500; color: #55433d">Collections</a>
+    <a href="#" style="display: flex; align-items: center; min-height: 44px; padding: 0 12px; border-radius: 4px; text-decoration: none; font-size: 15px; font-weight: 500; color: #55433d">Settings</a>
+  </nav>
+</aside>
+
+<main style="flex: 999 1 560px; min-width: 0; padding: 32px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+  <nav aria-label="Breadcrumb" style="font-size: 14px; color: #72625a"><a href="Admin-Products.dc.html">Products</a> / Add product</nav>
+  <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+    <h1 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 34px; line-height: 1.15">Add product</h1>
+    <div style="display: flex; flex-wrap: wrap; gap: 12px">
+      <a href="Admin-Products.dc.html" style="display: inline-flex; align-items: center; height: 48px; padding: 0 16px; font-size: 15px; font-weight: 600">Cancel</a>
+      <a href="Admin-Products.dc.html" class="vs-btn-secondary" style="display: inline-flex; align-items: center; box-sizing: border-box; text-decoration: none; height: 48px; padding: 0 20px; background: transparent; border: 1px solid #8a7b70; border-radius: 4px; color: #55433d; font: 600 15px 'DM Sans', sans-serif; cursor: pointer">Save as draft</a>
+      <a href="Admin-Products.dc.html" class="vs-btn-primary" style="display: inline-flex; align-items: center; text-decoration: none; height: 48px; padding: 0 24px; background: #8e4f4e; border: 0; border-radius: 4px; color: #ffffff; font: 600 15px 'DM Sans', sans-serif; letter-spacing: 0.02em; cursor: pointer">Save product</a>
+    </div>
+  </div>
+
+  <!-- Error summary -->
+  <div role="alert" style="display: flex; gap: 12px; padding: 16px; background: #f7e4e0; border-radius: 4px; color: #9b3a31; font-size: 15px; line-height: 1.5">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 1px"><circle cx="12" cy="12" r="9"></circle><path d="M12 8v5M12 16v.5"></path></svg>
+    <span><strong style="font-weight: 600">One thing to fix before saving:</strong> <a href="#p-price" style="color: #9b3a31">enter a selling price</a>.</span>
+  </div>
+
+  <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+    <!-- Left column -->
+    <div style="flex: 999 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+
+      <!-- Photos -->
+      <section style="background: #ffffff; border: 1px solid #d8c7ae; border-radius: 4px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <h2 style="margin: 0; font-size: 18px; font-weight: 600">Photos</h2>
+          <span style="font-size: 14px; color: #72625a">Add up to 8 photos. Portrait 3:4 in daylight works best. The first photo is shown on product cards.</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 16px">
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <div style="position: relative; aspect-ratio: 3 / 4; background: #f3ece4; border-radius: 2px; overflow: hidden">
+              <img src="/images/emerald-kanjivaram.jpg" alt="Photo 1, full saree" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%">
+              <span style="position: absolute; top: 8px; left: 8px; padding: 2px 8px; background: #ffffff; font-size: 13px; font-weight: 600; border-radius: 2px">Main photo</span>
+            </div>
+            <button type="button" style="height: 36px; background: none; border: 0; color: #8e4f4e; font: 600 14px 'DM Sans', sans-serif; text-decoration: underline; text-underline-offset: 3px; cursor: pointer">Remove</button>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <div style="aspect-ratio: 3 / 4; border-radius: 2px; overflow: hidden; background: #f3ece4"><img src="/images/emerald-kanjivaram.jpg" alt="Photo 2, pallu close-up" style="width: 100%; height: 100%; object-fit: cover; object-position: 58% 55%; transform: scale(1.8); display: block"></div>
+            <button type="button" style="height: 36px; background: none; border: 0; color: #8e4f4e; font: 600 14px 'DM Sans', sans-serif; text-decoration: underline; text-underline-offset: 3px; cursor: pointer">Remove</button>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <div style="aspect-ratio: 3 / 4; border-radius: 2px; overflow: hidden; background: #f3ece4"><img src="/images/emerald-kanjivaram.jpg" alt="Photo 3, border close-up" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 92%; transform: scale(2.2); display: block"></div>
+            <button type="button" style="height: 36px; background: none; border: 0; color: #8e4f4e; font: 600 14px 'DM Sans', sans-serif; text-decoration: underline; text-underline-offset: 3px; cursor: pointer">Remove</button>
+          </div>
+          <label style="aspect-ratio: 3 / 4; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 12px; border: 1px dashed #8a7b70; border-radius: 4px; background: #f8f4ef; text-align: center; font-size: 15px; font-weight: 600; color: #8e4f4e; cursor: pointer">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
+            Add photos
+            <input type="file" accept="image/*" multiple style="position: absolute; width: 1px; height: 1px; opacity: 0">
+          </label>
+        </div>
+      </section>
+
+      <!-- Basic details -->
+      <section style="background: #ffffff; border: 1px solid #d8c7ae; border-radius: 4px; padding: 24px; display: flex; flex-direction: column; gap: 20px">
+        <h2 style="margin: 0; font-size: 18px; font-weight: 600">Basic details</h2>
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <label for="p-name" style="font-size: 15px; font-weight: 500">Product name</label>
+          <input id="p-name" type="text" value="Emerald Kanjivaram silk saree" style="height: 48px; padding: 0 12px; border: 1px solid #8a7b70; border-radius: 4px; font: 400 16px 'DM Sans', sans-serif; color: #55433d; background: #ffffff; box-sizing: border-box">
+          <span style="font-size: 14px; color: #72625a">Colour, then weave. For example: Maroon Kanjivaram silk saree.</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <label for="p-desc" style="font-size: 15px; font-weight: 500">Description</label>
+          <textarea id="p-desc" rows="4" placeholder="Describe the colour, border, pallu and the occasions it suits." style="padding: 12px; border: 1px solid #8a7b70; border-radius: 4px; font: 400 16px/1.6 'DM Sans', sans-serif; color: #55433d; background: #ffffff; resize: vertical"></textarea>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px">
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <label for="p-cat" style="font-size: 15px; font-weight: 500">Category</label>
+            <select id="p-cat" style="height: 48px; padding: 0 12px; border: 1px solid #8a7b70; border-radius: 4px; font: 400 16px 'DM Sans', sans-serif; color: #55433d; background: #ffffff"><option>Silk sarees</option><option>Cotton sarees</option><option>Wedding</option></select>
+          </div>
+          <fieldset style="margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: 4px">
+            <legend style="padding: 0 0 8px; font-size: 15px; font-weight: 500">Collections</legend>
+            <label style="display: flex; align-items: center; gap: 12px; min-height: 40px; font-size: 16px"><input type="checkbox" checked="{{true}}" readOnly="{{true}}">Kanjivaram silk</label>
+            <label style="display: flex; align-items: center; gap: 12px; min-height: 40px; font-size: 16px"><input type="checkbox">Festive and party</label>
+          </fieldset>
+        </div>
+      </section>
+
+      <!-- Price -->
+      <section style="background: #ffffff; border: 1px solid #d8c7ae; border-radius: 4px; padding: 24px; display: flex; flex-direction: column; gap: 20px">
+        <h2 style="margin: 0; font-size: 18px; font-weight: 600">Price</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px">
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <label for="p-price" style="font-size: 15px; font-weight: 500">Selling price</label>
+            <div style="display: flex; height: 48px; border: 2px solid #9b3a31; border-radius: 4px; background: #ffffff; overflow: hidden; box-sizing: border-box">
+              <span style="display: flex; align-items: center; padding: 0 12px; background: #f3ece4; font-size: 16px">₹</span>
+              <input id="p-price" type="text" inputmode="numeric" aria-invalid="true" aria-describedby="p-price-err" style="flex: 1; min-width: 0; border: 0; padding: 0 12px; font: 400 16px 'DM Sans', sans-serif; color: #55433d; background: transparent">
+            </div>
+            <span id="p-price-err" style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: #9b3a31">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 8v5M12 16v.5"></path></svg>
+              Enter a selling price, for example 18500
+            </span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <label for="p-mrp" style="font-size: 15px; font-weight: 500">Original price <span style="font-weight: 400; color: #72625a">(optional)</span></label>
+            <div style="display: flex; height: 48px; border: 1px solid #8a7b70; border-radius: 4px; background: #ffffff; overflow: hidden; box-sizing: border-box">
+              <span style="display: flex; align-items: center; padding: 0 12px; background: #f3ece4; border-right: 1px solid #8a7b70; font-size: 16px">₹</span>
+              <input id="p-mrp" type="text" inputmode="numeric" style="flex: 1; min-width: 0; border: 0; padding: 0 12px; font: 400 16px 'DM Sans', sans-serif; color: #55433d; background: transparent">
+            </div>
+            <span style="font-size: 14px; color: #72625a">Shown crossed out next to the selling price.</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Saree details -->
+      <section style="background: #ffffff; border: 1px solid #d8c7ae; border-radius: 4px; padding: 24px; display: flex; flex-direction: column; gap: 20px">
+        <h2 style="margin: 0; font-size: 18px; font-weight: 600">Saree details</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px">
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <label for="d-fabric" style="font-size: 15px; font-weight: 500">Fabric</label>
+            <select id="d-fabric" style="height: 48px; padding: 0 12px; border: 1px solid #8a7b70; border-radius: 4px; font: 400 16px 'DM Sans', sans-serif; color: #55433d; background: #ffffff"><option>Pure silk</option><option>Silk-cotton</option><option>Cotton</option><option>Georgette</option></select>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <label for="d-weave" style="font-size: 15px; font-weight: 500">Weave</label>
+            <select id="d-weave" style="height: 48px; padding: 0 12px; border: 1px solid #8a7b70; border-radius: 4px; font: 400 16px 'DM Sans', sans-serif; color: #55433d; background: #ffffff"><option>Kanjivaram</option><option>Banarasi</option><option>Chanderi</option><option>Tussar</option></select>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <label for="d-colour" style="font-size: 15px; font-weight: 500">Colour</label>
+            <input id="d-colour" type="text" value="Emerald green with a gold paisley border" style="height: 48px; padding: 0 12px; border: 1px solid #8a7b70; border-radius: 4px; font: 400 16px 'DM Sans', sans-serif; color: #55433d; background: #ffffff; box-sizing: border-box">
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <label for="d-filter" style="font-size: 15px; font-weight: 500">Colour group for filters</label>
+            <select id="d-filter" style="height: 48px; padding: 0 12px; border: 1px solid #8a7b70; border-radius: 4px; font: 400 16px 'DM Sans', sans-serif; color: #55433d; background: #ffffff"><option>Green</option><option>Red and maroon</option><option>Blue</option><option>Pink</option><option>Purple</option></select>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <label for="d-length" style="font-size: 15px; font-weight: 500">Length</label>
+            <input id="d-length" type="text" value="5.5 m saree + 0.8 m blouse piece" style="height: 48px; padding: 0 12px; border: 1px solid #8a7b70; border-radius: 4px; font: 400 16px 'DM Sans', sans-serif; color: #55433d; background: #ffffff; box-sizing: border-box">
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <label for="d-blouse" style="font-size: 15px; font-weight: 500">Blouse piece</label>
+            <select id="d-blouse" style="height: 48px; padding: 0 12px; border: 1px solid #8a7b70; border-radius: 4px; font: 400 16px 'DM Sans', sans-serif; color: #55433d; background: #ffffff"><option>Included, unstitched</option><option>Included, stitched</option><option>Not included</option></select>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <label for="d-care" style="font-size: 15px; font-weight: 500">Care</label>
+            <select id="d-care" style="height: 48px; padding: 0 12px; border: 1px solid #8a7b70; border-radius: 4px; font: 400 16px 'DM Sans', sans-serif; color: #55433d; background: #ffffff"><option>Dry clean only</option><option>Gentle hand wash</option></select>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Right column -->
+    <div style="flex: 1 1 300px; max-width: 380px; display: flex; flex-direction: column; gap: 24px">
+      <section style="background: #ffffff; border: 1px solid #d8c7ae; border-radius: 4px; padding: 24px; display: flex; flex-direction: column; gap: 12px">
+        <h2 style="margin: 0 0 4px; font-size: 18px; font-weight: 600">Visibility</h2>
+        <label style="display: flex; align-items: flex-start; gap: 12px; padding: 12px; border: 2px solid #55433d; border-radius: 4px; background: #f8f4ef">
+          <input type="radio" name="vis" checked="{{true}}" readOnly="{{true}}" style="margin-top: 2px">
+          <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 16px; font-weight: 500">Draft</span><span style="font-size: 14px; color: #72625a">Only you can see it</span></span>
+        </label>
+        <label style="display: flex; align-items: flex-start; gap: 12px; padding: 12px; border: 1px solid #8a7b70; border-radius: 4px">
+          <input type="radio" name="vis" style="margin-top: 2px">
+          <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 16px; font-weight: 500">Published</span><span style="font-size: 14px; color: #72625a">Customers can see and buy it</span></span>
+        </label>
+      </section>
+
+      <section style="background: #ffffff; border: 1px solid #d8c7ae; border-radius: 4px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+        <h2 style="margin: 0; font-size: 18px; font-weight: 600">Stock</h2>
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <label for="s-sku" style="font-size: 15px; font-weight: 500">SKU</label>
+          <input id="s-sku" type="text" value="VS-KJ-0150" style="height: 48px; padding: 0 12px; border: 1px solid #8a7b70; border-radius: 4px; font: 400 16px 'DM Sans', sans-serif; color: #55433d; background: #ffffff; box-sizing: border-box">
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <label for="s-qty" style="font-size: 15px; font-weight: 500">Quantity in stock</label>
+          <input id="s-qty" type="number" value="3" min="0" style="height: 48px; padding: 0 12px; border: 1px solid #8a7b70; border-radius: 4px; font: 400 16px 'DM Sans', sans-serif; color: #55433d; background: #ffffff; box-sizing: border-box">
+          <span style="font-size: 14px; color: #72625a">Shows "Only 2 left" on the site at 2 or fewer.</span>
+        </div>
+      </section>
+
+      <section style="background: #ffffff; border: 1px solid #d8c7ae; border-radius: 4px; padding: 24px; display: flex; flex-direction: column; gap: 8px">
+        <h2 style="margin: 0 0 4px; font-size: 18px; font-weight: 600">Labels</h2>
+        <label style="display: flex; align-items: center; gap: 12px; min-height: 44px; font-size: 16px"><input type="checkbox" checked="{{true}}" readOnly="{{true}}">New arrival</label>
+        <label style="display: flex; align-items: center; gap: 12px; min-height: 44px; font-size: 16px"><input type="checkbox">Featured on homepage</label>
+      </section>
+
+      <section style="background: #f3ece4; border-radius: 4px; padding: 24px; display: flex; flex-direction: column; gap: 12px">
+        <h2 style="margin: 0; font-size: 15px; font-weight: 600">Card preview</h2>
+        <div style="background: #ffffff; padding: 12px; border-radius: 2px; display: flex; flex-direction: column">
+          <div style="position: relative; aspect-ratio: 3 / 4; background: #f3ece4; border-radius: 2px; overflow: hidden">
+            <img src="/images/emerald-kanjivaram.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%">
+            <span style="position: absolute; top: 8px; left: 8px; padding: 3px 8px; background: #b5b9a2; font-size: 13px; font-weight: 600; border-radius: 2px">New arrival</span>
+          </div>
+          <span style="padding-top: 12px; font-size: 16px; font-weight: 500">Emerald Kanjivaram silk saree</span>
+          <span style="padding-top: 4px; font-size: 14px; color: #72625a">Pure silk</span>
+          <span style="padding-top: 6px; font-size: 17px; font-weight: 500; color: #72625a">Price not set</span>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2000}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

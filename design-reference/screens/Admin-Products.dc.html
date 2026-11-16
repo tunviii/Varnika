@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<title>Varnika Sarees · Admin · Products</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&amp;family=DM+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#f8f4ef}
+a{color:#8e4f4e}a:hover{color:#7a3c40}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #7a3c40;outline-offset:2px}
+.vs-btn-primary:hover{background-color:#7a3c40 !important}
+.vs-row:hover{background-color:#f8f4ef}
+</style>
+</helmet>
+<div style="font-family: 'DM Sans', system-ui, sans-serif; color: #55433d; background: #f8f4ef; min-height: 100%; display: flex; flex-wrap: wrap; align-items: stretch">
+
+<!-- Sidebar -->
+<aside style="flex: 1 1 240px; max-width: 260px; background: #f3ece4; border-right: 1px solid #d8c7ae; padding: 24px 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+  <div style="display: flex; align-items: center; gap: 12px"><img src="/images/logo.png" alt="Varnika" style="height: 48px; width: auto; display: block"><span style="font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #72625a">Admin</span></div>
+  <nav aria-label="Admin" style="display: flex; flex-direction: column; gap: 4px">
+    <sc-for list="{{nav}}" as="n" hint-placeholder-count="6">
+      <a href="#" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 4px; text-decoration: none; font-size: 15px; font-weight: 500; color: #55433d; background: {{n.bg}}">{{n.label}}</a>
+    </sc-for>
+  </nav>
+  <div style="margin-top: auto; padding-top: 16px; border-top: 1px solid #d8c7ae; font-size: 14px; line-height: 1.5">
+    <div style="font-weight: 500">[Owner name]</div>
+    <a href="#" style="font-size: 14px">Sign out</a>
+  </div>
+</aside>
+
+<!-- Content -->
+<main style="flex: 999 1 560px; min-width: 0; padding: 32px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+  <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+    <div style="display: flex; flex-direction: column; gap: 4px">
+      <h1 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 34px; line-height: 1.15">Products</h1>
+      <span style="font-size: 14px; color: #72625a">48 products · 6 need attention</span>
+    </div>
+    <a href="Admin-Add-Product.dc.html" class="vs-btn-primary" style="display: inline-flex; align-items: center; gap: 8px; height: 48px; padding: 0 20px; background: #8e4f4e; color: #ffffff; border-radius: 4px; text-decoration: none; font-size: 15px; font-weight: 600; letter-spacing: 0.02em">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
+      Add product
+    </a>
+  </div>
+
+  <!-- Filters -->
+  <div style="display: flex; flex-wrap: wrap; align-items: flex-end; gap: 16px; padding: 20px; background: #ffffff; border: 1px solid #d8c7ae; border-radius: 4px">
+    <div style="flex: 2 1 260px; display: flex; flex-direction: column; gap: 8px">
+      <label for="a-search" style="font-size: 15px; font-weight: 500">Search products</label>
+      <input id="a-search" type="search" placeholder="Name or SKU" style="height: 44px; padding: 0 12px; border: 1px solid #8a7b70; border-radius: 4px; font: 400 16px 'DM Sans', sans-serif; color: #55433d; background: #ffffff">
+    </div>
+    <div style="flex: 1 1 180px; display: flex; flex-direction: column; gap: 8px">
+      <label for="a-cat" style="font-size: 15px; font-weight: 500">Category</label>
+      <select id="a-cat" style="height: 44px; padding: 0 12px; border: 1px solid #8a7b70; border-radius: 4px; font: 400 16px 'DM Sans', sans-serif; color: #55433d; background: #ffffff"><option>All categories</option><option>Silk sarees</option><option>Cotton sarees</option></select>
+    </div>
+    <div style="flex: 1 1 180px; display: flex; flex-direction: column; gap: 8px">
+      <label for="a-status" style="font-size: 15px; font-weight: 500">Status</label>
+      <select id="a-status" style="height: 44px; padding: 0 12px; border: 1px solid #8a7b70; border-radius: 4px; font: 400 16px 'DM Sans', sans-serif; color: #55433d; background: #ffffff"><option>Any status</option><option>Published</option><option>Draft</option><option>Sold out</option></select>
+    </div>
+    <button type="button" style="height: 44px; padding: 0 16px; background: transparent; border: 0; color: #8e4f4e; font: 600 15px 'DM Sans', sans-serif; cursor: pointer; text-decoration: underline; text-underline-offset: 4px">Clear filters</button>
+  </div>
+
+  <!-- Table -->
+  <div style="background: #ffffff; border: 1px solid #d8c7ae; border-radius: 4px; overflow-x: auto">
+    <table style="width: 100%; min-width: 820px; border-collapse: collapse; font-size: 16px; line-height: 1.5">
+      <thead>
+        <tr style="background: #f3ece4; text-align: left">
+          <th scope="col" style="padding: 12px 16px; font-size: 14px; font-weight: 600">Product</th>
+          <th scope="col" style="padding: 12px 16px; font-size: 14px; font-weight: 600">SKU</th>
+          <th scope="col" style="padding: 12px 16px; font-size: 14px; font-weight: 600">Category</th>
+          <th scope="col" style="padding: 12px 16px; font-size: 14px; font-weight: 600; text-align: right">Price</th>
+          <th scope="col" style="padding: 12px 16px; font-size: 14px; font-weight: 600; text-align: right">Stock</th>
+          <th scope="col" style="padding: 12px 16px; font-size: 14px; font-weight: 600">Status</th>
+          <th scope="col" style="padding: 12px 16px; font-size: 14px; font-weight: 600"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Actions</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <sc-for list="{{rows}}" as="r" hint-placeholder-count="6">
+          <tr class="vs-row" style="border-top: 1px solid #d8c7ae">
+            <td style="padding: 12px 16px">
+              <div style="display: flex; align-items: center; gap: 12px">
+                <img src="{{r.img}}" alt="" style="width: 48px; height: 48px; flex-shrink: 0; object-fit: cover; object-position: {{r.pos}}; border-radius: 2px; display: block; background: #f3ece4">
+                <span style="font-weight: 500">{{r.name}}</span>
+              </div>
+            </td>
+            <td style="padding: 12px 16px; font-size: 14px; color: #72625a">{{r.sku}}</td>
+            <td style="padding: 12px 16px">{{r.cat}}</td>
+            <td style="padding: 12px 16px; text-align: right; font-variant-numeric: tabular-nums">{{r.price}}</td>
+            <td style="padding: 12px 16px; text-align: right; font-variant-numeric: tabular-nums">{{r.stock}}</td>
+            <td style="padding: 12px 16px">
+              <span style="display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 2px; font-size: 13px; font-weight: 600; background: {{r.sBg}}; color: {{r.sFg}}">
+                <span style="width: 8px; height: 8px; border-radius: 999px; background: {{r.sFg}}"></span>{{r.status}}
+              </span>
+            </td>
+            <td style="padding: 12px 16px; text-align: right"><a href="Admin-Add-Product.dc.html" style="font-size: 15px; font-weight: 600">Edit</a></td>
+          </tr>
+        </sc-for>
+      </tbody>
+    </table>
+  </div>
+
+  <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; font-size: 14px; color: #72625a">
+    <span>Showing 1–6 of 48</span>
+    <div style="display: flex; gap: 8px">
+      <a href="#" style="display: inline-flex; align-items: center; height: 44px; padding: 0 16px; border: 1px solid #8a7b70; border-radius: 4px; color: #55433d; text-decoration: none; font-size: 15px; font-weight: 500; box-sizing: border-box">Previous</a>
+      <a href="#" style="display: inline-flex; align-items: center; height: 44px; padding: 0 16px; border: 1px solid #8a7b70; border-radius: 4px; color: #55433d; text-decoration: none; font-size: 15px; font-weight: 500; box-sizing: border-box">Next</a>
+    </div>
+  </div>
+</main>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1080}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var pub = { status: 'Published', sBg: '#eaeee4', sFg: '#4a6646' };
+    var low = { status: 'Low stock', sBg: '#f6ecd9', sFg: '#7f5413' };
+    var draft = { status: 'Draft', sBg: '#f3ece4', sFg: '#72625a' };
+    var out = { status: 'Sold out', sBg: '#f7e4e0', sFg: '#9b3a31' };
+    function row(name, sku, cat, price, stock, img, p, s) {
+      return Object.assign({ name: name, sku: sku, cat: cat, price: price, stock: stock, img: img, pos: p }, s);
+    }
+    var navItems = ['Dashboard', 'Products', 'Orders', 'Enquiries', 'Collections', 'Settings'];
+    return {
+      nav: navItems.map(function (l) { return { label: l, bg: l === 'Products' ? '#ffffff' : 'transparent' }; }),
+      rows: [
+        row('Red Kanjivaram silk saree', 'VS-KJ-0142', 'Silk sarees', '₹18,500', '4', '/images/red-kanjivaram.jpg', '50% 22%', pub),
+        row('Magenta Banarasi silk saree', 'VS-BN-0087', 'Silk sarees', '₹14,200', '2', '/images/magenta-banarasi.jpg', '62% 25%', low),
+        row('Ivory Chanderi silk saree', 'VS-CH-0033', 'Silk sarees', '₹6,800', '7', '/images/ivory-chanderi.jpg', '50% 22%', pub),
+        row('Natural Tussar silk saree', 'VS-TS-0210', 'Silk sarees', '₹8,600', '12', '/images/natural-tussar.jpg', '50% 22%', pub),
+        row('Blush pink Chanderi saree', 'VS-CH-0058', 'Silk sarees', '₹7,400', '0', '/images/blush-chanderi.jpg', '50% 22%', out),
+        row('Emerald Kanjivaram silk saree', 'VS-KJ-0150', 'Silk sarees', '₹21,000', '3', '/images/emerald-kanjivaram.jpg', '50% 25%', draft)
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

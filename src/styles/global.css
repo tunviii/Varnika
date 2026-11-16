@@ -1,0 +1,36 @@
+/* The <helmet><style> block shared by every design screen (imported into the `base` layer by index.css). */
+
+/* Border reset (the one piece of Tailwind preflight we need): Tailwind's border-b / border-t utilities
+   set border-style on all four sides, so the untouched sides must default to 0 width, not 3px "medium".
+   Form controls keep their browser defaults, as in the design. */
+:where(*:not(input, select, textarea, button), ::before, ::after) { border-width: 0; border-style: solid; }
+body {
+  margin: 0;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+}
+a { color: var(--text-link); }
+a:hover { color: var(--text-link-hover); }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.vs-btn-primary { transition: background-color 200ms ease-in-out; }
+/* Primary CTA colour: rosewood everywhere, logo maroon inside the homepage (<main className="home">). */
+:root { --cta: var(--action-primary); --cta-hover: var(--action-primary-hover); }
+.home { --cta: var(--home-cta); --cta-hover: var(--home-cta-hover); }
+.vs-btn-primary:hover { background-color: var(--cta-hover) !important; }
+.vs-btn-secondary { transition: background-color 200ms ease-in-out; }
+.vs-btn-secondary:hover { background-color: var(--blush) !important; border-color: var(--brown) !important; }
+.vs-nav:hover { color: var(--rosewood-deep) !important; }
+.vs-card-img { transition: transform 260ms ease-in-out; }
+.vs-card:hover .vs-card-img { transform: scale(1.03); }
+@media (prefers-reduced-motion: reduce) {
+  .vs-card-img, .vs-btn-primary, .vs-btn-secondary { transition: none; }
+  .vs-card:hover .vs-card-img { transform: none; }
+}
+
+/* Visually hidden but available to screen readers (the design's clip pattern). */
+.vs-sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }

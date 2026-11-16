@@ -1,0 +1,92 @@
+:root {
+  /* Colours */
+  --brand-maroon: #700820;
+  --brand-gold: #d0a048;
+  --ivory: #f8f4ef;
+  --cream: #f3ece4;
+  --blush: #f1e4e0;
+  --white: #ffffff;
+  --champagne: #d8c7ae;
+  --dusty-rose: #d8b8af;
+  --sage: #b5b9a2;
+  --taupe: #a7978b;
+  --rosewood: #a96f69;
+  --rosewood-deep: #8e4f4e;
+  --rosewood-dark: #7a3c40;
+  --taupe-deep: #72625a;
+  --brown: #55433d;
+  --stone: #8a7b70;
+  --success: #4a6646;
+  --success-bg: #eaeee4;
+  --warning: #7f5413;
+  --warning-bg: #f6ecd9;
+  --error: #9b3a31;
+  --error-bg: #f7e4e0;
+  --scrim: rgba(48, 36, 32, 0.45);
+  --bg-page: var(--ivory);
+  --bg-alt: var(--cream);
+  --bg-highlight: var(--blush);
+  --surface: var(--white);
+  --text-primary: var(--brown);
+  --text-secondary: var(--taupe-deep);
+  --text-on-action: var(--white);
+  --text-link: var(--rosewood-deep);
+  --text-link-hover: var(--rosewood-dark);
+  --action-primary: var(--rosewood-deep);
+  --action-primary-hover: var(--rosewood-dark);
+  --action-secondary-hover: var(--blush);
+  --border-subtle: var(--champagne);
+  --border-control: var(--stone);
+  --border-strong: var(--brown);
+  --focus-ring: var(--rosewood-dark);
+
+  /* Fonts */
+  --font-display: "Cormorant Garamond", "Cormorant", Georgia, "Times New Roman", serif;
+  --font-sans: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif;
+
+  /* spacing */
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-48: 48px;
+  --space-64: 64px;
+  --space-80: 80px;
+
+  /* radius */
+  --radius-none: 0;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-round: 999px;
+
+  /* shadow */
+  --shadow-sm: 0 1px 2px rgba(85, 67, 61, 0.08);
+  --shadow-md: 0 8px 24px rgba(85, 67, 61, 0.12);
+  --shadow-lg: 0 16px 48px rgba(48, 36, 32, 0.18);
+
+  /* container */
+  --container-text: 680px;
+  --container-md: 960px;
+  --container-lg: 1280px;
+  --container-wide: 1440px;
+
+  /* borderWidth */
+  --border-hairline: 1px;
+  --border-thick: 2px;
+
+  /* zIndex */
+  --z-base: 0;
+  --z-raised: 10;
+  --z-sticky: 100;
+  --z-overlay: 300;
+  --z-toast: 400;
+}
+
+/* Homepage only (Main + Mobile-Home): primary buttons and cart count use logo maroon */
+:root {
+  --home-cta: #850219;
+  --home-cta-hover: #6b0114;
+}

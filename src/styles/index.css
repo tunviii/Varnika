@@ -1,0 +1,103 @@
+/*
+ * Tailwind v4 without preflight: the design is built on browser defaults (normal line-height,
+ * underlined links, content-box sizing), so we only pull in Tailwind's theme + utilities.
+ * Values live in tokens.css (generated from design-reference/tokens.json); the theme below only
+ * maps them to Tailwind names, so no component ever uses a raw hex value.
+ */
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+@import './tokens.css';
+@import './global.css' layer(base);
+
+@theme inline {
+  /* Only the design's colours exist: bg-ivory, text-brown, border-stone … */
+  --color-*: initial;
+  --color-transparent: transparent;
+  --color-current: currentColor;
+  --color-brand-maroon: var(--brand-maroon);
+  --color-brand-gold: var(--brand-gold);
+  --color-ivory: var(--ivory);
+  --color-cream: var(--cream);
+  --color-blush: var(--blush);
+  --color-white: var(--white);
+  --color-champagne: var(--champagne);
+  --color-dusty-rose: var(--dusty-rose);
+  --color-sage: var(--sage);
+  --color-taupe: var(--taupe);
+  --color-rosewood: var(--rosewood);
+  --color-rosewood-deep: var(--rosewood-deep);
+  --color-rosewood-dark: var(--rosewood-dark);
+  --color-taupe-deep: var(--taupe-deep);
+  --color-brown: var(--brown);
+  --color-stone: var(--stone);
+  --color-success: var(--success);
+  --color-success-bg: var(--success-bg);
+  --color-warning: var(--warning);
+  --color-warning-bg: var(--warning-bg);
+  --color-error: var(--error);
+  --color-error-bg: var(--error-bg);
+  --color-scrim: var(--scrim);
+  --color-home-cta: var(--home-cta);
+  --color-home-cta-hover: var(--home-cta-hover);
+  --color-cta: var(--cta);
+  --color-action-primary: var(--action-primary);
+  --color-action-primary-hover: var(--action-primary-hover);
+
+  --font-*: initial;
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
+
+  /* tokens.json breakpoints (mobile-first) */
+  --breakpoint-*: initial;
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+
+  --radius-*: initial;
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-round: var(--radius-round);
+
+  --shadow-*: initial;
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+
+  /* max-w-text / max-w-md / max-w-lg / max-w-wide */
+  --container-*: initial;
+  --container-text: var(--container-text);
+  --container-md: var(--container-md);
+  --container-lg: var(--container-lg);
+  --container-wide: var(--container-wide);
+}
+
+/* Type styles from tokens.json, with their documented sizes below 768px. */
+@utility type-display {
+  font-family: var(--font-display); font-size: 40px; line-height: 1.05; font-weight: 500; letter-spacing: -0.01em;
+  @media (width >= 768px) { font-size: 56px; }
+}
+@utility type-h1 {
+  font-family: var(--font-display); font-size: 34px; line-height: 1.1; font-weight: 500;
+  @media (width >= 768px) { font-size: 44px; }
+}
+@utility type-h2 {
+  font-family: var(--font-display); font-size: 28px; line-height: 1.15; font-weight: 500;
+  @media (width >= 768px) { font-size: 34px; }
+}
+@utility type-h3 {
+  font-family: var(--font-display); font-size: 22px; line-height: 1.2; font-weight: 600;
+  @media (width >= 768px) { font-size: 26px; }
+}
+@utility type-body-lg {
+  font-size: 17px; line-height: 1.6;
+  @media (width >= 768px) { font-size: 18px; }
+}
+@utility type-eyebrow {
+  font-size: 13px; line-height: 1.4; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+}
+@utility type-button {
+  font-size: 15px; font-weight: 600; letter-spacing: 0.02em;
+}
